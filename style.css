@@ -1,0 +1,60 @@
+.container {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.form {
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form :first-child {
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  width: calc(500px - (82.78px + 55px));
+}
+
+.form :last-child {
+  color: white;
+  background-color: rgb(211, 0, 0);
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tasks {
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.tasks div {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.tasks div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.tasks button {
+  color: white;
+  background-color: rgb(211, 0, 0);
+  border: none;
+  border-radius: 4px;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
