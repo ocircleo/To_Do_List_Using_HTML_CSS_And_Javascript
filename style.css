@@ -72,6 +72,11 @@
   font-size: 18px;
 }
 
+.form :first-child:focus::placeholder {
+  opacity: 0;
+  transition: 0.3s;
+}
+
 @media (max-width: 575px) {
   .form :first-child {
     width: 60%;
