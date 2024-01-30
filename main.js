@@ -3,7 +3,6 @@ let input = document.querySelector(".input");
 let tasks = document.querySelector(".tasks");
 let deleteAllBtn = document.querySelector(".delete-all button");
 let arrayOfTasks = [];
-let checkImg = "";
 
 if (window.localStorage.getItem("tasks")) {
   arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
