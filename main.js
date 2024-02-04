@@ -7,7 +7,7 @@ let arrayOfTasks = [];
 if (window.localStorage.getItem("tasks")) {
   arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
   addingTasksTodiv(arrayOfTasks);
-  if (JSON.parse(window.localStorage.getItem("tasks")).length > '0') {
+  if (JSON.parse(window.localStorage.getItem("tasks")).length > "0") {
     deleteAllBtn.style.display = "flex";
   }
 }
@@ -23,7 +23,7 @@ addButton.onclick = function () {
     });
   }
   input.value = "";
-}
+};
 
 function addingTasksToArray(inputValue) {
   let obj = {
@@ -60,12 +60,14 @@ function addingTasksTodiv(allTasks) {
     divContainer.appendChild(delButton);
     delButton.addEventListener("click", function (e) {
       divContainer.remove();
-      deletingElementFromLocStorage(e.currentTarget.parentElement.getAttribute("taskId"));
-      if (JSON.parse(window.localStorage.getItem("tasks")).length == '0') {
+      deletingElementFromLocStorage(
+        e.currentTarget.parentElement.getAttribute("taskId")
+      );
+      if (JSON.parse(window.localStorage.getItem("tasks")).length == "0") {
         window.localStorage.removeItem("tasks");
         deleteAllBtn.style.display = "none";
       }
-    })
+    });
     tasks.appendChild(divContainer);
   });
 }
@@ -75,26 +77,30 @@ function deletingElementFromLocStorage(taskId) {
   window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
 }
 
-deleteAllBtn.addEventListener(("click"), (e) => {
+deleteAllBtn.addEventListener("click", (e) => {
   window.localStorage.removeItem("tasks");
   tasks.innerHTML = "";
   e.target.style.display = "none";
-})
+});
 
-tasks.addEventListener(("click"), (e) => {
-  e.target.classList.toggle("checked");
-  toggleChecked(e.target.getAttribute("taskId"));
-  if (e.target.classList.contains("checked")) {
-    e.target.children[0].children[0].src = "./Images/checked.png";
-  } else {
-    e.target.children[0].children[0].src = "./Images/unchecked.png";
+tasks.addEventListener("click", (e) => {
+  if (e.target && e.target.children && e.target.children[0] && e.target.children[0].children && e.target.children[0].children[0]) {
+    e.target.classList.toggle("checked");
+    toggleChecked(e.target.getAttribute("taskId"));
+    if (e.target.classList.contains("checked")) {
+      e.target.children[0].children[0].src = "./Images/checked.png";
+    } else {
+      e.target.children[0].children[0].src = "./Images/unchecked.png";
+    }
   }
 });
 
 function toggleChecked(taskId) {
   for (let i = 0; i < arrayOfTasks.length; i++) {
     if (arrayOfTasks[i].id == taskId) {
-      arrayOfTasks[i].completed == false ? (arrayOfTasks[i].completed = true) : (arrayOfTasks[i].completed = false);
+      arrayOfTasks[i].completed == false
+        ? (arrayOfTasks[i].completed = true)
+        : (arrayOfTasks[i].completed = false);
     }
   }
   window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
