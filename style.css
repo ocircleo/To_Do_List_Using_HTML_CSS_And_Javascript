@@ -33,6 +33,7 @@
 @media (max-width: 575px) {
   .to-do {
     max-width: 500px;
+    padding: 10px;
   }
 }
 
@@ -61,6 +62,13 @@
   align-items: center;
 }
 
+@media (max-width: 575px) {
+  .form {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
 .form :first-child {
   outline: none;
   border: none;
@@ -79,7 +87,8 @@
 
 @media (max-width: 575px) {
   .form :first-child {
-    width: 60%;
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 
@@ -107,6 +116,12 @@
   padding: 20px;
   border-radius: 7px;
   margin-top: 20px;
+}
+
+@media (max-width: 575px) {
+  .tasks {
+    padding: 7px;
+  }
 }
 
 .tasks > div {
@@ -152,6 +167,12 @@
   font-weight: bold;
 }
 
+@media (max-width: 575px) {
+  .tasks button {
+    padding: 7px;
+  }
+}
+
 .delete-all {
   display: flex;
   justify-content: center;
@@ -168,4 +189,10 @@
   font-weight: bold;
   cursor: pointer;
   display: none;
+}
+
+@media (max-width: 575px) {
+  .delete-all button {
+    padding: 9px 11px;
+  }
 }
