@@ -19,7 +19,7 @@ addButton.onclick = function () {
       deleteAllBtn.style.display = "flex";
     } else {
       Swal.fire({
-        title: "The task is too long! It must be <= 18 chars",
+        title: "The task is too long!",
         icon: "warning",
       });
     }
