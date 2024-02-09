@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="./Images/icon.png">
-  <title>To-Do List</title>
-</head>
-<body>
-  <div class="container">
-    <div class="to-do">
-      <div class="title">
-        <h1>To-Do List</h1>
-        <img src="./Images/icon.png" alt="To-Do List">
-      </div>
-      <div class="form">
-          <input type="text" class="input" placeholder="Add your task">
-          <input type="submit" class="add" value="Add Task">
-      </div>
-      <div class="tasks"></div>
-      <div class="delete-all">
-        <button>Delete All</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="./Images/icon.png" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="to-do">
+        <div class="title">
+          <h1>To-Do List</h1>
+          <img src="./Images/icon.png" alt="To-Do List" />
+        </div>
+        <form id="form" class="form">
+          <input
+            type="text"
+            name="title"
+            class="input"
+            placeholder="Add your task title"
+            required
+          />
+          <textarea
+            rows="6"
+            name="text"
+            class="input input-textarea"
+            placeholder="Add your task Description"
+          ></textarea>
+          <input type="submit" class="add scale" value="Add Task" />
+        </form>
+        <div class="tasks"></div>
+        <div class="delete">
+          <button class="delete-all button scale">Delete All</button>
+          <button class="delete-selected button scale">Delete Selected</button>
+        </div>
       </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>

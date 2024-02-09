@@ -1,3 +1,22 @@
+/*
+===== css styling class names guide =====
+*
+container
+todo
+title
+input
+form
+tasks
+task-container
+task
+task-title
+title-container
+delete
+button 
+done
+*/
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -52,48 +71,22 @@
 .title img {
   width: 30px;
 }
-
-.form {
-  background-color: #eee;
-  padding: 20px;
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media (max-width: 575px) {
-  .form {
-    flex-direction: column;
-    padding: 10px;
-  }
-}
-
-.form :first-child {
+.input {
   outline: none;
   border: none;
   padding: 12px;
-  height: 43.2px;
   border-radius: 7px;
-  width: 72%;
   caret-color: #4e085f;
   font-size: 18px;
 }
-
-.form :first-child:focus::placeholder {
+.input-textarea {
+  resize: vertical;
+}
+.input:focus::placeholder {
   opacity: 0;
   transition: 0.3s;
 }
-
-@media (max-width: 575px) {
-  .form :first-child {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
-.form :last-child {
-  width: 25%;
+.add {
   color: white;
   background-color: #153677;
   border: none;
@@ -103,31 +96,52 @@
   font-weight: bold;
   cursor: pointer;
 }
-
-@media (max-width: 575px) {
-  .form :last-child {
-    width: 36%;
-    font-size: 18px;
-  }
-}
-
-.tasks {
+.form {
   background-color: #eee;
   padding: 20px;
   border-radius: 7px;
-  margin-top: 20px;
-  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: stretch;
 }
-
-@media (max-width: 575px) {
-  .tasks {
-    padding: 7px;
+.tasks {
+  background-color: #eee;
+  padding: 7px;
+  border-radius: 7px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 575px) {
+  .tasks{
+    padding: 20px;
   }
 }
-
-.tasks > div {
+.task-container{
   background-color: white;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+
+}
+.task-container >p{
+  color: rgb(81, 81, 81);
+  padding-left: 5px;
+  max-width: 100%;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+@media (min-width: 575px) {
+  .task-container >p {
+    font-size: 17px;
+  }
+}
+.task {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,65 +149,79 @@
   font-size: 20px;
   font-weight: bold;
   color: #4e085f;
-  cursor: pointer;
+  width: 100%;
 }
-
-.tasks > div.checked .text {
-  text-decoration: line-through;
+.task-title{
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 14px;
 }
-
-.tasks .text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tasks .text img {
-  width: 20px;
-  margin-right: 15px;
-}
-
-.tasks > div:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.tasks button {
-  color: white;
-  background-color: rgb(211, 0, 0);
-  border: none;
-  border-radius: 7px;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-@media (max-width: 575px) {
-  .tasks button {
-    padding: 7px;
+@media screen and (min-width:300px) {
+  .task-title{
+    font-size: 16px;
   }
 }
-
-.delete-all {
+@media screen and (min-width:500px) {
+  .task-title{
+    font-size: 18px;
+  }
+}
+.tasks img {
+  width: 20px;
+  height: 20px;
+}
+.title-container{
+  display: flex;
+  align-items: center;
+  max-width: 80%;
+  gap: 10px;
+}
+.delete {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
-.delete-all button {
-  color: white;
-  background-color: rgb(211, 0, 0);
-  border: none;
-  border-radius: 7px;
-  padding: 10px 15px;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  display: none;
-}
-
 @media (max-width: 575px) {
   .delete-all button {
     padding: 9px 11px;
   }
+}
+.button {
+  color: white;
+  background-color: rgb(211, 0, 0);
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+}
+@media screen and (min-width:500px) {
+  .button{
+    color: white;
+    background-color: rgb(211, 0, 0);
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+.done{
+  color: black;
+  text-decoration: 2px line-through red;
+
+}
+.scale{
+  transition: .1s;
+
+}
+.scale:active{
+  transform: scale(.9);
+}
+.pointer{
+  cursor: pointer;
 }
