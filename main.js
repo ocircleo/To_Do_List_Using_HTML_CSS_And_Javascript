@@ -14,12 +14,12 @@ if (window.localStorage.getItem("tasks")) {
 
 addButton.onclick = function () {
   if (input.value !== "") {
-    if (input.value.length <= 20) {
+    if (input.value.length <= 18) {
       addingTasksToArray(input.value);
       deleteAllBtn.style.display = "flex";
     } else {
       Swal.fire({
-        title: "The task is too long!",
+        title: "The task is too long! It must be <= 18 chars",
         icon: "warning",
       });
     }
