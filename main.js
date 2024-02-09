@@ -14,8 +14,15 @@ if (window.localStorage.getItem("tasks")) {
 
 addButton.onclick = function () {
   if (input.value !== "") {
-    addingTasksToArray(input.value);
-    deleteAllBtn.style.display = "flex";
+    if (input.value.length <= 20) {
+      addingTasksToArray(input.value);
+      deleteAllBtn.style.display = "flex";
+    } else {
+      Swal.fire({
+        title: "The task is too long!",
+        icon: "warning",
+      });
+    }
   } else {
     Swal.fire({
       title: "You must write something!",
@@ -84,7 +91,13 @@ deleteAllBtn.addEventListener("click", (e) => {
 });
 
 tasks.addEventListener("click", (e) => {
-  if (e.target && e.target.children && e.target.children[0] && e.target.children[0].children && e.target.children[0].children[0]) {
+  if (
+    e.target &&
+    e.target.children &&
+    e.target.children[0] &&
+    e.target.children[0].children &&
+    e.target.children[0].children[0]
+  ) {
     e.target.classList.toggle("checked");
     toggleChecked(e.target.getAttribute("taskId"));
     if (e.target.classList.contains("checked")) {
